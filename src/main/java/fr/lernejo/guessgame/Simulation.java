@@ -38,5 +38,6 @@ public class Simulation {
             end = this.nextRound();
             //maxLoop--;
         }while (!end);
+        this.logger.log("Fin de partie, end of game");
     }
 }
