@@ -37,6 +37,6 @@ public class Simulation {
         do {
             end = this.nextRound();
             //maxLoop--;
-        }while (end);
+        }while (!end);
     }
 }
