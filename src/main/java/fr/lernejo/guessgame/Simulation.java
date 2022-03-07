@@ -3,6 +3,8 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+
 public class Simulation {
 
     private final Logger logger = LoggerFactory.getLogger("simulation");
@@ -32,12 +34,21 @@ public class Simulation {
         return false;
     }
 
-    public void loopUntilPlayerSucceed(/*int maxLoop*/) {
+    public void loopUntilPlayerSucceed(long maxLoop) {
         boolean end;
+        long timeBegin = System.currentTimeMillis();
         do {
             end = this.nextRound();
-            //maxLoop--;
-        }while (!end);
-        this.logger.log("Fin de partie, end of game");
+            maxLoop--;
+        }while (!end && maxLoop > 0);
+        long timeEnd = System.currentTimeMillis();
+        SimpleDateFormat f = new SimpleDateFormat("mm:ss:SSS");
+        String time = f.format(timeEnd-timeBegin);
+        if (end) {
+            this.logger.log("Fin de partie, gagné en " + time);
+        } else {
+            this.logger.log("Fin de partie, perdu en " + time);
+        }
+
     }
 }
