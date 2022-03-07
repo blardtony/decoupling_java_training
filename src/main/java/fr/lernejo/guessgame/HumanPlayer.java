@@ -3,6 +3,7 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class HumanPlayer implements Player{
@@ -11,12 +12,22 @@ public class HumanPlayer implements Player{
 
     @Override
     public long askNextGuess() {
-        return 0;
+        System.out.println("Entrez une réponse");
+        long answer = Long.parseLong(this.scanner.nextLine());
+        this.logger.log("Player answer : " + answer);
+        return answer;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
-
+        if (lowerOrGreater) {
+            this.logger.log("la solution est plus petite");
+            System.out.println("La réponse est plus petite");
+        }
+        else{
+            this.logger.log("la solution est plus grande");
+            System.out.println("La réponse est plus grande");
+        }
     }
 
 }

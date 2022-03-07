@@ -32,10 +32,11 @@ public class Simulation {
         return false;
     }
 
-    public void loopUntilPlayerSucceed() {
-        boolean end = false;
-        while (end) {
+    public void loopUntilPlayerSucceed(/*int maxLoop*/) {
+        boolean end;
+        do {
             end = this.nextRound();
-        }
+            //maxLoop--;
+        }while (end);
     }
 }
