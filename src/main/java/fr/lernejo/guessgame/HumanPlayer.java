@@ -21,12 +21,12 @@ public class HumanPlayer implements Player{
     @Override
     public void respond(boolean lowerOrGreater) {
         if (lowerOrGreater) {
-            this.logger.log("la solution est plus petite");
-            System.out.println("La réponse est plus petite");
+            this.logger.log("la solution est plus petit");
+            System.out.println("La réponse est plus petit");
         }
         else{
-            this.logger.log("la solution est plus grande");
-            System.out.println("La réponse est plus grande");
+            this.logger.log("la solution est plus grand");
+            System.out.println("La réponse est plus grand");
         }
     }
 
