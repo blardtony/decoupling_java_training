@@ -46,10 +46,8 @@ public class Simulation {
         String time = f.format(timeEnd-timeBegin);
         if (end) {
             this.logger.log("Fin de partie, gagné en " + time);
-            System.out.println("Fin de partie, gagné en " + time);
         } else {
             this.logger.log("Fin de partie, perdu en " + time);
-            System.out.println("Fin de partie, perdu en " + time);
         }
 
     }

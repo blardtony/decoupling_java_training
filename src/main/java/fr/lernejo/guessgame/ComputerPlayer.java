@@ -39,10 +39,10 @@ public class ComputerPlayer implements Player{
     public void respond(boolean lowerOrGreater) {
         this.higther = lowerOrGreater;
         if (lowerOrGreater) {
-            this.logger.log("la solution est plus petit");
+            //this.logger.log("la solution est plus petit");
         }
         else{
-            this.logger.log("la solution est plus grand");
+            //this.logger.log("la solution est plus grand");
         }
     }
 
