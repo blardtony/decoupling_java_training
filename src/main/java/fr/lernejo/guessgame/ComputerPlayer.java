@@ -7,42 +7,42 @@ import java.util.Scanner;
 
 public class ComputerPlayer implements Player{
     private final Logger logger = LoggerFactory.getLogger("computer");
-    private final Scanner scanner = new Scanner(System.in);
-    private  Long max;
-    private  long min;
-    private boolean higther;
-
+    private boolean higher;
+    private long min;
+    private long max;
+    private long guess;
     public ComputerPlayer(Long parseLong) {
-        this.max = parseLong;
-        this.min = - 1;
-        this.higther = false;
+        higher = false;
+        min = -1;
+        max = parseLong;
+        guess = 0;
     }
 
 
     @Override
     public long askNextGuess() {
-        long guess = -1;
         if (this.min == -1L) {
-            guess = this.max / 2;
+            this.guess = this.max / 2;
             this.min = 0;
         }
         else {
-            this.min = this.higther ? guess : this.min;
-            this.max = !this.higther ? guess : this.max;
+            this.min = !this.higher ? guess : this.min;
+            this.max = this.higher ? guess : this.max;
             guess = (this.min + this.max) / 2;
         }
+
         this.logger.log("Answer : " + guess);
         return guess;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
-        this.higther = lowerOrGreater;
+        this.higher = lowerOrGreater;
         if (lowerOrGreater) {
-            //this.logger.log("la solution est plus petit");
+            this.logger.log("la solution est plus petit");
         }
         else{
-            //this.logger.log("la solution est plus grand");
+            this.logger.log("la solution est plus grand");
         }
     }
 
