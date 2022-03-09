@@ -6,15 +6,15 @@ public class FilteredLogger implements Logger{
     private final Logger logger;
     private final Predicate<String> predicate;
 
-    public FilteredLogger(Logger logger, Predicate<String> condition) {
+    public FilteredLogger(Logger logger, Predicate<String> predicate) {
         this.logger = logger;
-        this.predicate = condition;
+        this.predicate = predicate;
     }
 
     @Override
     public void log(String message) {
-        if (predicate.test(message)) {
-            logger.log(message);
+        if (this.predicate.test(message)) {
+            this.logger.log(message);
         }
     }
 }
